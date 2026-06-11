@@ -1,0 +1,19 @@
+function removeElement (nums, val) {
+    // 1. Remove vals from nums.
+    // 2. Return the new length of the nums.
+    // 3. The new length should not have val
+    // 4. Beyond new length it can have any number/element.
+    // 5. In-place.
+    // 6. Relative order.
+    
+    let k = 0;
+    for(let r=0; r<nums.length; r++){
+        if(nums[r] !== val){
+            nums[k] = nums[r]
+            k++
+        }
+    }
+    return k
+    
+};
+removeElement([0,1,2,2,3,0,4,2], 2)
