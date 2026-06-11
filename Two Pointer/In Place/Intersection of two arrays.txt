@@ -1,0 +1,22 @@
+// We can simple store the values in a set, so that output does not have duplicates
+// But If it is a large dataset with multiple duplicate values
+// Converting both array to set will reduce the length of the arr, because duplicates removed.
+// next we need to check wheather each element from nums 1 has nums2
+// since it is a Set we use ".has", if it is then we add it to array and delete that number from the Set
+// Why we delete because for next element it will check whole set
+// but now the size of the set is reduced after deletion, so the time t search is also reduced. 
+
+var intersection = function(nums1, nums2) {
+    const n1 = new Set(nums1)
+    const n2 = new Set(nums2)
+    const uniqueArr = []
+
+    for(let l of n1){
+        if(n2.has(l)){
+            uniqueArr.push(l)
+            n2.delete(l)
+        }
+    }
+    return uniqueArr
+    
+};
