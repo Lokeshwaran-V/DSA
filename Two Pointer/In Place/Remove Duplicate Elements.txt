@@ -1,0 +1,20 @@
+function removeDuplicateElement (nums) {
+    // 1. Remove duplicates from nums.
+    // 2. Sorted Array.
+    // 3. The new length should not have duplicates
+    // 4. Beyond new length it can have any number/element.
+    // 5. In-place.
+    // 6. Relative order.
+    let l = 1;
+    
+    for (let r = 1; r < nums.length; r++ ){
+        if(nums[r] != nums[r-1]){
+            nums[l] = nums[r];
+            l++;
+        }
+    }
+    console.log(nums);
+    console.log(l);
+    
+}
+removeDuplicateElement([0,0,1,1,1,2,2,3,3,4])
