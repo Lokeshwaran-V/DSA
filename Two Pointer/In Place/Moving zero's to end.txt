@@ -1,0 +1,16 @@
+function movingZero(nums){
+    // 1. Move zero's to the end.
+    // 2. Maintain Relative order.
+
+    let l = 0;
+    for(let r=0; r<nums.length; r++){
+        if(nums[r] != 0){
+            [nums[l], nums[r]] = [nums[r], nums[l]]
+            l++;
+        }
+    }
+    console.log(nums)
+
+}
+
+movingZero([1,2,0,4,3,0,5,0])
