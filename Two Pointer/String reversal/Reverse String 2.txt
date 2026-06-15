@@ -1,0 +1,22 @@
+function reverseII(s,k){
+	const sArr = s.split("");
+	let sLen = sArr.length - 1;
+	
+	for(let i = 0; i < sLen; i += 2*k){
+		let left = i;
+		let right = Math.min(i+k-1, sLen);
+		
+		while(left < right){
+			[sArr[left],sArr[right]] = [sArr[right], sArr[left]]
+			left++;
+			right--;
+		}
+	}
+	console.log(sArr.join(""));
+}
+
+reverseII("abcdefg",2)
+reverseII("abcdefghij",3)
+reverseII("ab",2)
+reverseII("a",2)
+reverseII("abcde",4)
