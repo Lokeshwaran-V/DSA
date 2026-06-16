@@ -1,0 +1,10 @@
+let arr = []
+for(let i of s){
+    if(i !== "*"){
+        arr.push(i)
+    }else {
+        arr.pop()
+    }
+}
+let l = arr.join("")
+console.log(l)
