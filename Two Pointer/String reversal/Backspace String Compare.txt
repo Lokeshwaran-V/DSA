@@ -1,0 +1,25 @@
+let s = "ab#c"
+let t = "ad#c"
+
+let sArr = []
+let tArr = []
+
+for(let i of s){
+    if(i !== "#"){
+        sArr.push(i)
+    }else{
+        sArr.pop()
+    }
+}
+for(let j of t){
+    if(j !== "#"){
+        tArr.push(j)
+    }else{
+        tArr.pop()
+    }
+}
+
+let l = sArr.join("")
+let r = tArr.join("")
+
+console.log(l === r)
