@@ -1,0 +1,18 @@
+// Input: s = "the sky is blue"
+// Output: "blue is sky the"
+
+// Advanced
+const res = s.split(" ").filter(e => !!e).reverse().join(" ")
+console.log(res)
+
+// Brute force
+let s = "   the   sky     is   blue     "
+
+let arr = s.split(" ")
+let word = ""
+for(let i of arr){
+    if(i !== ""){
+        word = i + " " + word
+    }
+}
+console.log(word.trim());
