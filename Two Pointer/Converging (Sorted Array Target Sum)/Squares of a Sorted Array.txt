@@ -1,0 +1,24 @@
+function squared(nums){
+    let l = 0
+    let r = nums.length - 1
+    
+    let index = nums.length - 1
+    const result = new Array(nums.length) // simply []
+    
+    while(l <= r){
+        let lSquared = nums[l] * nums[l]
+        let rSquared = nums[r] * nums[r]
+        
+        if(lSquared > rSquared){
+            result[index] = lSquared
+            l++
+        }else{
+            result[index] = rSquared
+            r--
+        }
+        index--
+    }
+    console.log(result)
+}
+
+squared([-4,-1,0,3,10])
