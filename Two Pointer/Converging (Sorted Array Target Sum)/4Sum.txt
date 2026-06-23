@@ -1,0 +1,56 @@
+var fourSum = function(nums, target) {
+    const sorted = nums.sort((a,b) => a-b)
+    const n = nums.length
+    let result = []
+    
+    for(let a = 0; a<nums.length-3; a++){
+        if(a > 0 && sorted[a] === sorted[a-1]){
+            continue
+        }
+        
+        const minA = sorted[a]+sorted[a+1]+sorted[a+2]+sorted[a+3]
+        if(minA > target){
+            break
+        }
+        const maxA = sorted[a]+sorted[n-1]+sorted[n-2]+sorted[n-3]
+        if(maxA < target){
+            continue
+        }
+        
+        for(let b = a+1; b<nums.length-2;b++){
+            if(b > a+1 && sorted[b] === sorted[b-1]){
+                continue
+            }
+            const minB = sorted[a]+sorted[b]+sorted[b+1]+sorted[b+2]
+            if(minB > target){
+                break
+            }
+            const maxB = sorted[a]+sorted[b]+sorted[n-1]+sorted[n-2]
+            if(maxB < target){
+                continue
+            }
+            let left = b+1
+            let right = nums.length - 1
+            
+            while(left < right){
+                let sum = sorted[a] + sorted[b] + sorted[left] + sorted[right]
+                if(sum < target){
+                    left++;
+                }else if(sum > target){
+                    right--;
+                }else{
+                    result.push([sorted[a],sorted[b],sorted[left],sorted[right]])
+                    left++
+                    right--
+                    while(left < right && nums[left] === nums[left-1]){
+                        left++
+                    }
+                    while(left < right && nums[right] === nums[right+1]){
+                        right--
+                    }
+                }
+            }
+        }
+    }
+    return result
+}
