@@ -1,0 +1,35 @@
+// Optimum solution
+// Instead of using the sort which is O(n log n)
+// we can create an array with the weight as index and increase the occurances of weigth
+
+var numRescueBoats = function(people, limit) {
+    const count = Array(limit+1).fill(0)
+    
+    for(let person of people){
+        count[person]++
+    }
+    
+    let l = 0;
+    let r = limit;
+    let boat = 0;
+    
+    while(l <= r){
+        while(l <=r && count[l] <= 0){
+            l++;
+        }
+        while(l <=r && count[r] <= 0){
+            r--;
+        }
+        if(l > r) break
+        if(l + r > limit){
+            boat++
+            count[r]--
+        }
+        if(l + r <= limit){
+            boat++
+            count[r]--
+            count[l]--
+        }
+    }
+    return boat
+};
